@@ -16,7 +16,7 @@ PVOID memaddy = LocalAlloc(LPTR, 300); // Using LocalAlloc()
 ```C
 PVOID memaddy = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, 300);
 
-CHAR* wCharacter = "Things and stuff";
+CHAR* pCharacter = "Things and stuff";
 
-memcpy(memaddy, wCharacter, strlen(cString));
+memcpy(memaddy, pCharacter, strlen(cString));
 ```
