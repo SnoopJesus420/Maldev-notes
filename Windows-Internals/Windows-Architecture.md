@@ -24,3 +24,7 @@ Let's say for example a user has a program open and wants to create a file. The 
 3. ntdll.dll - Ntdll.dll will then execute a assembly sysenter (x86) or syscall (x64) instruction, which will transfer the execution to kernel mode.
 
 4. Kernel - The kernel NtCreateFile function is then used to call kernel leve drivers and modules to perform the requested task.
+
+
+# Directly Invoking the Native API
+It's important to remember that applications can invoke syscalls (i.e. NTDLL functions) directly without having to go through the Windows API (subsystem dlls). Essentially the Windows API is a wrapper for the Native API. The reason why applications don't do this more often is because the Native API it's not officially documented, unlike the Windows API. Also, Microsoft tends to advise againts directly invoking syscalls because they can be changed at any time without warning.
