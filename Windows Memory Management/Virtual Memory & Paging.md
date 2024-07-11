@@ -1,2 +1,12 @@
-# Virtual Memory and Paging
-Memory in Windows is not mapped to a physical location. Instead, virtual memory addresses are used by processess that are then mapped to physical memory. The goal of this is to save as much memory as possible. Virtual memory can be mapped to physical memory but can also be stored on-disk. With virtual memory, processes can share the same virtual memory address. The way virtual memory works is by leveraging memory paging, which divides memory into 4kb chunks.
+# Allocating a Memory buffer
+
+
+```C
+// Allocating a memory buffer of 300 bytes
+
+PVOID memaddy = malloc(300); // Using malloc()
+
+PVOID memaddy = HeapAlloc(GetProcessHeap(), 0, 300); // Using HeapAlloc()
+
+PVOID memaddy = LocalAlloc(LPTR, 300); // Using LocalAlloc()
+```
