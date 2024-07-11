@@ -11,3 +11,16 @@ The Windows oeprating system operates under two different modes, user and kernel
 3. Ntdll.dll - This is a system wide DLL that is the lowest layer available in user mode. This DLL is essentially what makes the transistion between user and kernel mode. Sometimes, this is referred to as the NativeAPI or NTAPI.
 
 4. Executive Kernel - This is what is known as the Windows kernel. This is what calls other drivers and modules to complete tasks. The Windows kernel is partially stored in C:\Windows\system32\ntoskrnl.exe
+
+
+# Function Call Flow Example
+
+Let's say for example a user has a program open and wants to create a file. The function call flow would look something like this:
+
+1. User Application - Program makes a call to CreateFile, which is avaible in kernel32.dll. This DLL is critical because it exposes applications to the WinAPI and therefore can be loaded by most applications.
+
+2. kern32.dll - kernel32 will then make the equivalent call to the NativeAPI function, NtCreateFile, which is found in ntdll.dll.
+
+3. ntdll.dll - Ntdll.dll will then execute a assembly sysenter (x86) or syscall (x64) instruction, which will transfer the execution to kernel mode.
+
+4. Kernel - The kernel NtCreateFile function is then used to call kernel leve drivers and modules to perform the requested task.
