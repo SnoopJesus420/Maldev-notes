@@ -32,7 +32,7 @@ int main(void) {
 	else {
 
 		// Display an error message via GetLastError() API call
-		std::cerr << "CreateProcessW failed (" << GetLastError() << ").\n";
+		cerr << "CreateProcessW failed (" << GetLastError() << ").\n";
 	}
 
 	return 0;
