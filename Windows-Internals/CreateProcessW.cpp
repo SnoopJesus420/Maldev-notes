@@ -15,11 +15,11 @@ int main(void) {
 	ZeroMemory(&pi, sizeof(pi));
 
 	// Variable to store command
-	LPCWSTR cmd = L"notepad.exe";
+	wchar_t cmd[] = L"notepad.exe\0";
 
 
 	// Creating the process
-	if (CreateProcessW(NULL, const_cast<LPWSTR>(cmd), NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
+	if (CreateProcessW(NULL, cmd, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
 
 		// Wait until child process exits
 		WaitForSingleObject(pi.hProcess, INFINITE);
