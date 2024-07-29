@@ -35,6 +35,12 @@ int main(void) {
 		cerr << "CreateProcessW failed (" << GetLastError() << ").\n";
 	}
 
+	// Prints process and thread information
+	printf("dwProcessId : %d\n", pi.dwProcessId);
+	printf("dwThreadId  : %d\n", pi.dwThreadId);
+	printf("hProcess    : %p\n", pi.hProcess);
+	printf("hThread     : %p\n", pi.hThread);
+
 	return 0;
 
 }
