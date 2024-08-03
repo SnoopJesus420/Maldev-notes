@@ -24,7 +24,7 @@ namespace DInvoke
             try
             {
                 // Invoking CreateProcessW using the ordinal 233
-                var hLibrary = Generic.GetLibraryAddress("kernel32.dll", 247);
+                var hLibrary = Generic.GetLibraryAddress("kernel32.dll", <insert ordinal number>);
 
                 // Debug: Ensure we got a valid function pointer
                 if (hLibrary == IntPtr.Zero)
